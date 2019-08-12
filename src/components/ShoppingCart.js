@@ -4,7 +4,7 @@ import React, {useContext} from 'react';
 import Item from './ShoppingCartItem';
 import CartContext from '../Contexts/CartContext'
 
-const ShoppingCart = props => {
+const ShoppingCart = () => {
 	const cartData = useContext(CartContext);
 	console.log('cartData in Shoppingcart', cartData)
 
@@ -17,7 +17,7 @@ const ShoppingCart = props => {
 	return (
 		<div className="shopping-cart">
 			{cartData.cart.map(item => (
-				<Item key={item.id} {...item} />
+				<Item key={item.id} item={item} removeItem = {cartData.removeItem} />
 			))}
 
 			<div className="shopping-cart__checkout">

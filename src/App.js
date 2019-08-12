@@ -17,10 +17,20 @@ function App() {
 		setCart([...cart, item]);
 	};
 
+	const removeItem = id => {
+		console.log('id in removeItem', id)
+
+		setCart(item => 
+			// console.log('item in setCart', item)
+			item.filter(item.id != id)
+			// data: prevState.data.filter(el => el != id )
+		)
+	}
+
 	return (
 		
 	<ProductContext.Provider value={{products, addItem}}>
-		<CartContext.Provider value={{cart}}>
+		<CartContext.Provider value={{cart, removeItem}}>
 			<div className="App">
 				<Navigation />
 
