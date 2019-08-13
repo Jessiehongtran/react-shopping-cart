@@ -17,14 +17,10 @@ function App() {
 		setCart([...cart, item]);
 	};
 
-	const removeItem = id => {
-		console.log('id in removeItem', id)
-
-		setCart(item => 
-			// console.log('item in setCart', item)
-			item.filter(item.id != id)
-			// data: prevState.data.filter(el => el != id )
-		)
+	const removeItem = item => {
+		// console.log('item in removeItem', item)
+		const filteredCart = cart.filter(cartItem => cartItem.id !== item.id)
+		setCart(filteredCart)
 	}
 
 	return (
